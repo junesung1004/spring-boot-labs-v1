@@ -1,6 +1,5 @@
 package com.example.myfirstspringbootapp.configuration;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,7 +11,7 @@ public class HelloConfigController {
     private HelloConfigBean helloConfigBean;
 
     @GetMapping("/hello-config")
-    public String hello() {
+    public String hello(){
         return helloConfigBean.sayHello();
     }
 }

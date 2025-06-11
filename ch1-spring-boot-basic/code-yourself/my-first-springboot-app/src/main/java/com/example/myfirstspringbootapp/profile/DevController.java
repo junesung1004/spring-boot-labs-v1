@@ -1,6 +1,5 @@
 package com.example.myfirstspringbootapp.profile;
 
-
 import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class DevController {
     @GetMapping("/dev")
     public String dev() {
-        return "개발 환경";
+        return "개발환경";
     }
 }

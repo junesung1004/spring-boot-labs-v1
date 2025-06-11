@@ -1,7 +1,7 @@
 package com.example.myfirstspringbootapp.di_with_beans;
 
 import com.example.myfirstspringbootapp.di_with_assembler.Assembler;
-import com.example.myfirstspringbootapp.di_with_beans.cafe.Baristar;
+import com.example.myfirstspringbootapp.di_with_beans.cafe.Barista;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,16 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CoffeeController2 {
 
+    Barista barista;
+
     @Autowired
-    Baristar baristar;
+    public CoffeeController2(Barista barista) {
+        this.barista = barista;
+    }
 
     @GetMapping("/coffee-bean")
     public String coffee() {
-        return baristar.makeCoffee();
-    }
-
-    @Autowired
-    public void setBaristar(Baristar baristar) {
-        this.baristar = baristar;
+        return barista.makeCoffee();
     }
 }

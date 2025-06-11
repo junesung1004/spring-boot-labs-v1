@@ -1,6 +1,5 @@
 package com.example.myfirstspringbootapp.component_scan;
 
-
 import org.springframework.stereotype.Component;
 
 @Component

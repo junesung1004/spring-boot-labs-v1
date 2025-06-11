@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Profile("prod")
 public class ProdController {
-
     @GetMapping("/prod")
-    public String dev() {
-        return "운영 환경";
+    public String prod() {
+        return "운영환경";
     }
 }

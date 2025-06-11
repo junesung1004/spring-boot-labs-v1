@@ -1,6 +1,6 @@
-spring :
-  application :
-    name : my-first-springboot-app
+spring:
+  application:
+    name: my-first-springboot-app
   profiles:
     active: prod
 
@@ -10,3 +10,6 @@ app:
   name: 스프링부트 연습 프로젝트
   version: 1.0.0
   message: Hello from YAML !
+  
+# 프로파일
+

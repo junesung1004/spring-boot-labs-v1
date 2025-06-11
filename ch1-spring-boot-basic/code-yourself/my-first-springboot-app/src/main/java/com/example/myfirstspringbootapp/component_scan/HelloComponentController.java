@@ -1,6 +1,5 @@
 package com.example.myfirstspringbootapp.component_scan;
 
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,4 +16,5 @@ public class HelloComponentController {
     public String hello() {
         return component.sayHello();
     }
+
 }
