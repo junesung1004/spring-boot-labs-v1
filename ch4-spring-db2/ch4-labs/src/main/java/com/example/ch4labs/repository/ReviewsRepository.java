@@ -9,4 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ReviewsRepository extends JpaRepository<Reviews, Long> {
     Page<Reviews> findByTitleContaining(String keyword, Pageable pageable);
+
+    Page<Reviews> findByBookTitleContaining(String keyword, Pageable pageable);
+
+    Page<Reviews> findByAuthorAndRating(String author, int rating, Pageable pageable);
 }

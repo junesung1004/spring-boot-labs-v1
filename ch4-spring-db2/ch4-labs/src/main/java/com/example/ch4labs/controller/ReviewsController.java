@@ -25,7 +25,7 @@ public class ReviewsController {
 
     @GetMapping
     public ResponseEntity<ReviewsPageResponse> searchReviews(ReviewsSearchRequest search) {
-        return ResponseEntity.ok(service.search(search));
+        return ResponseEntity.ok(service.getAllReviews(search));
     }
 
     @GetMapping("/{id}")

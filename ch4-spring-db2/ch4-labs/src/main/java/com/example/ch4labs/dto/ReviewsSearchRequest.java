@@ -10,7 +10,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReviewsSearchRequest {
 
-    private String keyword = "";
+    private String keyword;
+    private String keywordType;
+    private String bookTitle;
+    private String author;
+    private Integer rating;
     private int page = 0;
     private int size = 10;
 }

@@ -28,8 +28,23 @@ public class ReviewsService {
         return ReviewsResponse.from(savedReviews);
     }
 
-    public List<ReviewsResponse> getAllReviews() {
-        return reviewsRepository.findAll().stream().map(ReviewsResponse::from).collect(Collectors.toList());
+    public ReviewsPageResponse getAllReviews(ReviewsSearchRequest search) {
+        Pageable pageable = PageRequest.of(search.getPage(), search.getSize());
+
+        Page<Reviews> reviews = null;
+
+        if(search.getKeyword() != null) {
+            if(search.getKeyword().equals("title")) {
+                reviews = reviewsRepository.findByTitleContaining(search.getKeyword(), pageable);
+            }
+        } else if (search.getKeyword() != null) {
+
+            reviews = reviewsRepository.findByBookTitleContaining(search.getKeyword(), pageable);
+        }
+
+        Page<ReviewsResponse> page = reviews.map(review -> ReviewsResponse.from(review));
+
+        return ReviewsPageResponse.from(page.getContent(), search, page.getTotalElements());
     }
 
     public ReviewsResponse getPostById(Long id) {
@@ -60,11 +75,11 @@ public class ReviewsService {
 
     }
 
-    public ReviewsPageResponse search(ReviewsSearchRequest search) {
-        Pageable pageable = PageRequest.of(search.getPage(), search.getSize());
-        Page<ReviewsResponse> page = reviewsRepository.findByTitleContaining(search.getKeyword(), pageable)
-                .map(ReviewsResponse::from);
-
-        return ReviewsPageResponse.from(page.getContent(), search, page.getTotalElements());
-    }
+//    public ReviewsPageResponse search(ReviewsSearchRequest search) {
+//        Pageable pageable = PageRequest.of(search.getPage(), search.getSize());
+//        Page<ReviewsResponse> page = reviewsRepository.findByTitleContaining(search.getKeyword(), pageable)
+//                .map(ReviewsResponse::from);
+//
+//        return ReviewsPageResponse.from(page.getContent(), search, page.getTotalElements());
+//    }
 }
