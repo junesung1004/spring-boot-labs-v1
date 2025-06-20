@@ -1,28 +1,33 @@
 package com.example.ch4labs.domain;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
-@Getter
-@Setter
+import java.time.LocalDateTime;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Table(name = "reviews")
-public class Reviews {
+public class Review {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String title;
-    private String content;
     private String author;
     private String bookTitle;
     private String bookAuthor;
+    private String content;
     private int rating;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 
 }
