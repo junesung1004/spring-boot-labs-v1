@@ -1,7 +1,7 @@
 package com.example.ch4labs.service;
 
 import com.example.ch4labs.domain.Review;
-import com.example.ch4labs.dto.*;
+import com.example.ch4labs.dto.review.*;
 import com.example.ch4labs.repository.ReviewRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;

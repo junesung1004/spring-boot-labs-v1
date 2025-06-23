@@ -1,13 +1,11 @@
 package com.example.ch4labs.controller;
 
-import com.example.ch4labs.dto.*;
+import com.example.ch4labs.dto.review.*;
 import com.example.ch4labs.service.ReviewService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @AllArgsConstructor
